@@ -2,11 +2,30 @@
 @import "fonts";
 @import "variables";
 @import "mixins";
-@import "helpers";
 @import "typography";
 @import "sprite";
 @import "override";
 
-@import "components/container";
+@import "layouts/loader";
+@import "layouts/login";
+
+@import "components/footer";
+@import "components/button";
+@import "components/input";
+
+@import "components/mobile-wrap";
+@import "components/mobile-container";
+
+@import "components/metawallet-logo";
+
+@import "components/loader-wrap";
+@import "components/loader-content";
+@import "components/loader-message";
+@import "components/loader-status-icon";
+@import "components/loader-tip";
+@import "components/loader-fail-block";
+
+@import "components/pages";
 
 @import "app";
+@import "helpers";

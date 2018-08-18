@@ -1,0 +1,17 @@
+extends layouts/_loader-layout.pug
+
+include components/loader-status-icon.pug
+include components/loader-tip.pug
+
+block append vars
+  -
+    title = 'Loader tips';
+    message = 'attention';
+
+
+block loaderContent
+  .ta-center
+    +loader-status-icon
+    p.tt-uppercase.
+      connecting...
+    +loader-tip

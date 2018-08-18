@@ -1,0 +1,17 @@
+extends _loader-layout.pug
+
+include ../components/button.pug
+
+block append vars
+  -
+    footerSlogan = false;
+    bg = 'login';
+
+mixin login-head(title, button={text: '', href: '', iconSrc: '', iconAlt: ''})
+  -
+    var {text, href, iconSrc, iconAlt} = button;
+  .login__head
+    p.text-light-xxxl.mb-0
+      != title
+    +button-small({tag: 'a', type: 'primary', iconSrc: iconSrc})(href=href)
+      != text

@@ -1,14 +1,18 @@
 $trans: all 0.3s ease;
-$side-padding-pc: 30px;
-$side-padding-mobile: 15px;
+
+$side-padding: 19px;
+
 $max-width-value: 1160px;
-$max-width: calc(#{$max-width-value} + 2 * #{$side-padding-pc});
+$max-width: calc(#{$max-width-value} + 2 * #{$side-padding});
 $min-width: 320px;
 
-// $color-main--lightest: #CBF3BF;
-// $color-main--lighten:  #ACEF97;
-// $color-main--light:    #74EA4F;
-// $color-main:           #3FD411;
-// $color-main--dark:     #39BA11;
-// $color-main--darken:   #329F11;
-// $color-main--darkest:  #184B09;
+$blue-light: #99CEFF;
+$blue-main: #4084C0;
+$blue-dark: rgb(10, 73, 130);
+$blue-darken: rgb(41, 55, 80);
+$blue-darkest: #0B1B37;
+$blue-superdark: rgba(5, 11, 31, 0.6);
+
+$gray: rgba(153, 206, 255, 0.3);
+
+$red-main: #FB5E5B;

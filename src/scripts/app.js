@@ -1,6 +1,7 @@
-// require("babel-polyfill");
+import 'babel-polyfill';
 
-import svg4everybody from 'svg4everybody'
+import svg4everybody from 'svg4everybody';
+import switchPagesMenu from './switchPagesMenu';
 
 const app = {
   load: () => {
@@ -9,6 +10,7 @@ const app = {
 
   bindEvents: () => {
     svg4everybody();
+    switchPagesMenu();
   }
 };
 

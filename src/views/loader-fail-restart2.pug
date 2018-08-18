@@ -1,0 +1,15 @@
+extends layouts/_loader-layout.pug
+
+include components/loader-status-icon.pug
+include components/loader-fail-block.pug
+
+block append vars
+  -
+    title = 'Loader fail restart';
+    message = 'warning';
+
+
+block loaderContent
+  .ta-center
+    +loader-status-icon('refresh', {ripple: false})
+    +loader-fail-block

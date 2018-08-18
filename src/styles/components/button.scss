@@ -1,0 +1,77 @@
+.button-small {
+  $v-padding: 16px;
+  $h-padding: 32px;
+  $icon-size: 15px;
+
+  transition: border-color 0.3s ease;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  display: inline-block;
+  color: $blue-light;
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 $h-padding;
+
+  &__inner {
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: $icon-size;
+    display: inline-block;
+    padding: $v-padding $h-padding;
+
+    &_icon {
+      padding: $v-padding ($icon-size + 14px) $v-padding 0;
+    }
+  }
+
+  &_bordered {
+    border: 2px solid $blue-darken;
+    background-color: transparent;
+    color: white;
+  }
+
+  &_primary {
+    background-color: $blue-dark;
+  }
+
+  img {
+    margin-left: 15px;
+  }
+
+  &:hover {
+    border-color: $blue-light;
+  }
+}
+
+.styled-button {
+  $padding: 23px;
+  $icon-size: 16px;
+
+  transition: border-color 0.3s ease;
+  border: 3px solid $blue-light;
+  border-radius: 50px;
+  display: inline-block;
+  color: $blue-light;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 $padding;
+
+  &__inner {
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: $icon-size;
+    display: inline-block;
+    padding: $padding 0;
+
+    &_icon {
+      padding: $padding ($icon-size + 8px) $padding 0;
+    }
+  }
+}

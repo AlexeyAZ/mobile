@@ -1,24 +1,67 @@
-.fw-bold {
-	font-weight: bold;
+.mb {
+
+  &-0 {
+    margin-bottom: 0;
+  }
 }
 
-.fw-med {
-	font-weight: 500;
+.fw {
+
+  &-bold {
+    font-weight: bold;
+  }
+  
+  &-med {
+    font-weight: 500;
+  }
+
+  &-reg {
+    font-weight: normal;
+  }
+
+  &-light {
+    font-weight: 300;
+  }
+
+  &-thin {
+    font-weight: 100;
+  }
 }
 
-.fw-reg {
-	font-weight: normal;
+.ta {
+  &-center {
+	  text-align: center;
+  }
 }
 
-.fw-light {
-	font-weight: 300;
+.tt {
+  
+  &-uppercase {
+    text-transform: uppercase;
+  }
 }
 
-.ta-center {
-	text-align: center;
+.d {
+
+  &-block {
+    display: block;
+  }
+  
+  &-inline-block {
+    display: inline-block;
+  }
 }
 
-.tt-uppercase {
-	text-transform: uppercase;
+.vertical-align {
+
+  &-middle {
+    vertical-align: middle;
+  }
 }
 
+.color {
+
+  &-blue-main {
+    color: $blue-light;
+  }
+}

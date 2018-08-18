@@ -1,8 +1,13 @@
-extends layouts/_default_layout.pug
+extends layouts/_loader-layout.pug
 
-block vars
-    - var title = 'Main'
+include components/loader-status-icon.pug
 
-block content
-    +container().
-        1
+block append vars
+  -
+    title = 'Loader';
+
+block loaderContent
+  .ta-center
+    +loader-status-icon
+    p.tt-uppercase.
+      connecting...
