@@ -1,1 +1,4 @@
-@include ff("Roboto", "../fonts/Roboto/roboto-bold", bold, normal);
+@include ff("Roboto", "../fonts/Roboto/roboto-light", 300, normal);
+@include ff("Roboto", "../fonts/Roboto/roboto-medium", 500, normal);
+@include ff("Roboto", "../fonts/Roboto/roboto-regular", normal, normal);
+@include ff("Roboto", "../fonts/Roboto/Roboto-Thin", 100, normal);
