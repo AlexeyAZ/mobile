@@ -1,0 +1,71 @@
+extends layouts/_wallet-layout.pug
+
+include components/input.pug
+include components/button.pug
+include components/wallet-card.pug
+
+block append vars
+  -
+    wallets = [
+      {
+        currencyIcon: 'img/icon-mhc.svg', icon: 'img/img-earth-fire.png', name: 'SuperWallet', hash: 'd7dc 881c ...  fd36 84bb 672d 1', sumCryptoInt: 62, sumCryptoFraction: 200939, sumCryptoCurrency: '#mhc', sumFiat: 256.12, fiatCurrency: 'USD'
+      },
+      {
+        currencyIcon: 'img/icon-btc.svg',
+        icon: 'img/img-earth.png',
+        name: 'Btc wallet',
+        hash: 'd7dc 881c ...  fd36 84bb 672d 1',
+        sumCryptoInt: 7,
+        sumCryptoFraction: 29,
+        sumCryptoCurrency: 'btc',
+        sumFiat: '49,395.12',
+        fiatCurrency: 'USD'
+      },
+      {
+        currencyIcon: 'img/icon-ethereum.svg',
+        icon: 'img/img-earth-fire.png',
+        name: 'Wallet for exchange',
+        hash: 'd7dc 881c ...  fd36 84bb 672d 1',
+        sumCryptoInt: 105,
+        sumCryptoFraction: 0,
+        sumCryptoCurrency: 'eth',
+        sumFiat: '14,035.00',
+        fiatCurrency: 'USD'
+      },
+      {
+        currencyIcon: 'img/icon-mhc.svg', icon: 'img/img-earth-fire.png', name: 'SuperWallet', hash: 'd7dc 881c ...  fd36 84bb 672d 1', sumCryptoInt: 62, sumCryptoFraction: 200939, sumCryptoCurrency: '#mhc', sumFiat: 256.12, fiatCurrency: 'USD'
+      }
+    ];
+
+block walletContent
+  .ta-center
+    .wallet__title
+      p.caption-l.wallet__title-text.
+        Total assets value
+      a(href='').wallet__dots
+        .wallet__dots-item
+        .wallet__dots-item
+        .wallet__dots-item
+    .wallet__head
+      .wallet__head-main
+        .wallet__head-sum
+          span.wallet__head-sum-int.
+            1967.
+          span.wallet__head-sum-fraction.
+            00 USD
+        a(href='').wallet__head-settings
+          img(src='img/icon-settings.svg')
+      .wallet__head-info
+        span.wallet__head-mhc.
+          #MHC: 674,64 USD
+        span.wallet__head-percent-change.
+          +12.55%
+  .wallet__chart-wrap
+    .wallet__chart.js-wallet-chart
+  .wallet__switch-block-wrap
+    +switch-block
+  each item, index in wallets
+    if index === 2
+      +wallet-card(item, true)
+    else
+      +wallet-card(item)

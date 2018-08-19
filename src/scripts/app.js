@@ -2,6 +2,7 @@ import 'babel-polyfill';
 
 import svg4everybody from 'svg4everybody';
 import switchPagesMenu from './switchPagesMenu';
+import walletChart from './walletChart';
 
 const app = {
   load: () => {
@@ -11,6 +12,7 @@ const app = {
   bindEvents: () => {
     svg4everybody();
     switchPagesMenu();
+    walletChart();
   }
 };
 

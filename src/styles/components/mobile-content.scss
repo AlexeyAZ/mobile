@@ -1,15 +1,19 @@
-.loader-wrap {
+.mobile-content {
   background-position: center top;
   background-repeat: no-repeat;
   background-size: contain;
   flex-grow: 1;
   flex-shrink: 1;
 
-  &_loader {
+  &_earth {
     background-image: url('../img/bg-earth.png');
   }
 
-  &_login {
-    background-image: url('../img/login-bg-earth.png');
+  &_login-earth {
+    background-image: url('../img/bg-login-earth.png');
+  }
+
+  &_wallet {
+    background-image: url('../img/bg-wallet-earth.png');
   }
 }

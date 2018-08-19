@@ -1,7 +1,6 @@
 @import "mixins";
 @import "fonts";
 @import "variables";
-@import "mixins";
 @import "typography";
 @import "sprite";
 @import "override";
@@ -14,16 +13,20 @@
 @import "components/input";
 
 @import "components/mobile-wrap";
+@import "components/mobile-content";
 @import "components/mobile-container";
 
 @import "components/metawallet-logo";
 
-@import "components/loader-wrap";
 @import "components/loader-content";
 @import "components/loader-message";
 @import "components/loader-status-icon";
 @import "components/loader-tip";
 @import "components/loader-fail-block";
+
+@import "components/wallet-content";
+@import "components/wallet";
+@import "components/wallet-card";
 
 @import "components/pages";
 

@@ -12,3 +12,11 @@ mixin styled-button(tag='a', options={})
   #{tag}.styled-button&attributes(attributes)
     span.styled-button__inner(class=(iconSrc ? 'styled-button__inner_icon' : ''), style=(iconSrc ? `background-image: url(${iconSrc})` : ''))
       block
+
+mixin switch-block(firstBtn = {text: 'Currency'}, lastBtn = {text: 'Recent Wallets'})
+  -
+  .switch-block&attributes(attributes)
+    a(href='').switch-block__button
+      != firstBtn.text
+    a(href='').switch-block__button.switch-block__button_active
+      != lastBtn.text

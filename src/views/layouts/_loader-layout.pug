@@ -1,6 +1,5 @@
 extends _default-layout.pug
 
-include ../components/loader-wrap.pug
 include ../components/loader-content.pug
 include ../components/metawallet-logo.pug
 include ../components/loader-message.pug
@@ -8,14 +7,12 @@ include ../components/loader-message.pug
 block append vars
   -
     var message = false;
-    var bg = 'loader';
 
 
 block content
-  +loader-wrap(bg)
-    +mobile-container
-      +loader-content
-        if message
-          +loader-message(message)
-        +metawallet-logo.loader__metawallet-logo
-        block loaderContent
+  +mobile-container
+    +loader-content
+      if message
+        +loader-message(message)
+      +metawallet-logo.loader__metawallet-logo
+      block loaderContent

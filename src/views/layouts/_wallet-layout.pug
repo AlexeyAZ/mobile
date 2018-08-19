@@ -1,0 +1,14 @@
+extends _default-layout.pug
+
+include ../components/wallet-content.pug
+include ../components/button.pug
+
+block append vars
+  -
+    contentBg = 'wallet';
+    footer = false;
+
+block content
+  +mobile-container
+    +wallet-content
+      block walletContent

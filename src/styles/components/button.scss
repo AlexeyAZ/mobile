@@ -47,11 +47,12 @@
 }
 
 .styled-button {
+  $border-width: 3px;
   $padding: 23px;
   $icon-size: 16px;
 
   transition: border-color 0.3s ease;
-  border: 3px solid $blue-light;
+  border: $border-width solid #1F77C8;
   border-radius: 50px;
   display: inline-block;
   color: $blue-light;
@@ -62,6 +63,26 @@
   text-transform: uppercase;
   text-decoration: none;
   padding: 0 $padding;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: $border-width;
+    width: 100%;
+  }
+
+  &:before {
+    background-image: linear-gradient(to right, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 10%, rgba(255,255,255, 1) 30%, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0.2) 80%, rgba(255,255,255, 0) 100%);
+    top: -$border-width;
+  }
+
+  &:after {
+    background-image: linear-gradient(to right, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0.4) 80%, rgba(255,255,255, 0) 90%, rgba(255,255,255, 0) 100%);
+    bottom: -$border-width;
+  }
 
   &__inner {
     background-position: right center;
@@ -72,6 +93,47 @@
 
     &_icon {
       padding: $padding ($icon-size + 8px) $padding 0;
+    }
+  }
+}
+
+.switch-block {
+  display: flex;
+  font-size: 11px;
+
+  &__button {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    color: $blue-main;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+
+    &:first-child {
+      border-radius: 4px 0 0 4px;
+      border-top: 1px solid rgba(75, 140, 198, 0.5);
+      border-bottom: 1px solid rgba(75, 140, 198, 0.5);
+      border-left: 1px solid rgba(75, 140, 198, 0.5);
+    }
+
+    &:last-child {
+      border-radius: 0 4px 4px 0;
+      border-top: 1px solid rgba(75, 140, 198, 0.5);
+      border-bottom: 1px solid rgba(75, 140, 198, 0.5);
+      border-right: 1px solid rgba(75, 140, 198, 0.5);
+    }
+
+    &_active {
+      background-color: $blue-main;
+      border-color: $blue-main;
+      color: white;
+    }
+
+    &:hover {
+      border-color: $blue-main;
+      color: white;
     }
   }
 }

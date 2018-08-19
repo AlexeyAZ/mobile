@@ -1,45 +1,40 @@
 const folders = {
   build: 'build',
   src: 'src'
-}
+};
 
 const localServer = {
   options: {
     server: {
-      baseDir: "./" + folders.build
+      baseDir: './' + folders.build
     },
     open: true,
     notify: false,
     https: true
   }
-}
+};
 
 
-const gulp = require('gulp'),
-  bs = require("browser-sync").create(),
-  sourcemaps = require('gulp-sourcemaps'),
-  concat = require('gulp-concat'),
-  pug = require('gulp-pug'),
-  jadeInheritance = require('gulp-jade-inheritance'),
-  bulkSass = require('gulp-sass-bulk-import'),
-  moduleImporter = require('sass-module-importer'),
-  sass = require('gulp-sass'),
-  wait = require('gulp-wait'),
-  prefix = require('gulp-autoprefixer'),
-  babel = require('gulp-babel'),
-  watch = require('gulp-watch'),
-  svgSprite = require('gulp-svg-sprite'),
-  svgmin = require('gulp-svgmin'),
-  cheerio = require('gulp-cheerio'),
-  replace = require('gulp-replace'),
-  typograf = require('gulp-typograf'),
-  eslint = require('gulp-eslint'),
-  devip = require('dev-ip'),
-  changed = require('gulp-changed'),
-  imagemin = require('gulp-imagemin'),
-  webpack = require("webpack-stream");
+const gulp = require('gulp');
+const bs = require('browser-sync').create();
+const sourcemaps = require('gulp-sourcemaps');
+const pug = require('gulp-pug');
+const bulkSass = require('gulp-sass-bulk-import');
+const moduleImporter = require('sass-module-importer');
+const sass = require('gulp-sass');
+const wait = require('gulp-wait');
+const prefix = require('gulp-autoprefixer');
+const watch = require('gulp-watch');
+const svgSprite = require('gulp-svg-sprite');
+const svgmin = require('gulp-svgmin');
+const cheerio = require('gulp-cheerio');
+const replace = require('gulp-replace');
+const eslint = require('gulp-eslint');
+const devip = require('dev-ip');
+const imagemin = require('gulp-imagemin');
+const webpack = require('webpack-stream');
 
-console.log("ip list: " + devip()); // show all ip list. Need for browsersync host option
+console.log('ip list: ' + devip()); // show all ip list. Need for browsersync host option
 
 function onError(err) {
   console.log(err);
@@ -70,12 +65,12 @@ gulp.task('scripts', function () {
           {
             test: /\.js$/,
             exclude: /(node_modules|bower_components|vendor.js)/,
-            loader: "babel-loader"
+            loader: 'babel-loader'
           }
         ]
       },
       output: {
-        filename: 'app.js',
+        filename: 'app.js'
       },
       devtool: 'source-map'
     }))
@@ -105,8 +100,8 @@ gulp.task('sass', function () {
       includePaths: [folders.src + '/styles/', folders.src + '/components/'],
       importer: moduleImporter()
     })
-    .on('error', sass.logError))
-    .pipe(prefix("last 3 version", "> 1%", "ie 8", "ie 7"))
+      .on('error', sass.logError))
+    .pipe(prefix('last 3 version', '> 1%', 'ie 10'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(folders.build + '/styles'))
     .pipe(bs.stream());
@@ -116,13 +111,19 @@ gulp.task('sass', function () {
 gulp.task('img', function () {
   gulp.src([folders.src + '/img/**/*.png', folders.src + '/img/**/*.jpg', folders.src + '/img/**/*.svg'])
     .pipe(imagemin())
-    .pipe(gulp.dest(folders.build + '/img'))
+    .pipe(gulp.dest(folders.build + '/img'));
 });
 
 
 gulp.task('fonts', function () {
   gulp.src([folders.src + '/fonts/**/*.*'])
-    .pipe(gulp.dest(folders.build + '/fonts'))
+    .pipe(gulp.dest(folders.build + '/fonts'));
+});
+
+
+gulp.task('data', function () {
+  gulp.src([folders.src + '/data/**/*.*'])
+    .pipe(gulp.dest(folders.build + '/data'));
 });
 
 
@@ -145,11 +146,11 @@ gulp.task('svgSpriteBuild', function () {
     .pipe(svgSprite({
       mode: {
         symbol: {
-          sprite: "../sprite.svg",
+          sprite: '../../../src/views/sprite/sprite.pug',
           render: {
             scss: {
               dest: '../../../src/styles/_sprite.scss',
-              template: folders.src + "/styles/svg-templates/_sprite_template.scss"
+              template: folders.src + '/styles/svg-templates/_sprite_template.scss'
             }
           }
         }
@@ -161,12 +162,12 @@ gulp.task('svgSpriteBuild', function () {
 
 gulp.task('build', [
   'fonts',
+  'data',
   'img',
   'pug',
   'sass',
   'scripts',
-  'lint',
-  'svgSpriteBuild'
+  'lint'
 ]);
 
 

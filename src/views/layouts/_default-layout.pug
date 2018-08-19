@@ -2,7 +2,10 @@ doctype html
 
 include ../common/variables.pug
 
+include ../components/icon.pug
+
 include ../components/mobile-wrap.pug
+include ../components/mobile-content.pug
 include ../components/mobile-container.pug
 include ../components/footer.pug
 include ../components/pages.pug
@@ -22,8 +25,11 @@ html
     link(href="styles/main.css?v=" + Date.now(), rel="stylesheet")
     link(href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet")
   body
+    //- include ../sprite/sprite.pug
     +pages
     +mobile-wrap
-      block content
-      +footer(version, {slogan: footerSlogan})
+      +mobile-content(contentBg)
+        block content
+      if footer
+        +footer(version, {slogan: footer.slogan})
     script(src="scripts/app.js?v=" + Date.now())
